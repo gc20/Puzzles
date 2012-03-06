@@ -1,0 +1,180 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf350
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+
+\f0\fs24 \cf0 // Try hashmaps for searching\
+// Use short int array for type storage\
+// Dynamically increase array size\
+// BufferedReader repetition\
+package liarliar;\
+/*\
+/Users/Govind/Desktop/test/liarliar.txt\
+*/\
+import java.io.BufferedReader;\
+import java.io.DataInputStream;\
+import java.io.FileReader;\
+\
+public class liar \{\
+\
+\
+	public static void main (String args[]) throws Exception\
+	\{\
+		DataInputStream in;\
+		String filePath = null; \
+		BufferedReader br1 = null;\
+		BufferedReader br2 = null;\
+		int size, i,j,k,maxrow,row,listcount;\
+		boolean check = false;\
+		String subname = null, name = null;\
+		String arr [][];\
+		\
+		try\
+		\{\
+			in  = new DataInputStream (System.in);\
+			filePath = in.readLine();\
+			br1 = new BufferedReader(new FileReader(filePath));\
+			br2 = new BufferedReader(new FileReader(filePath));\
+\
+			size = Integer.parseInt(br1.readLine());\
+			br2.readLine();\
+			arr = new String [100][2]; //problem\
+			maxrow = 0; // Number of rows in array\
+			row = -1; // Row number of interviewee\
+			\
+			\
+			for (i=1;i<=size;i++)\
+			\{\
+				\
+				// Extract Interviewee Info\
+				name = br1.readLine().trim();\
+				br2.readLine();\
+				listcount = Integer.parseInt (name.substring(name.indexOf(" "),name.length()).trim());\
+\
+				name = name.substring(0, name.indexOf (" "));\
+\
+				//Add to Array if Required\
+				row = isPresent (arr,maxrow,name);\
+				if (row == -1)\
+				\{\
+					addIntervieweeName (arr,maxrow,name);\
+					row = maxrow;\
+					maxrow++;\
+				\}\
+				\
+\
+				\
+				//br2 = br1;\
+				\
+				//Determine interviewee type from subname if possible\
+				for (j=0;j<listcount;j++)\
+					\{\
+					subname = br1.readLine().trim();\
+					if (arr[row][1] == null) // If no type has been assigned for interviewee\
+						checkSubname (arr,maxrow,row,subname); // Sets type of assignee, if possible\
+					\}\
+				\
+				\
+				for (j=0;j<listcount;j++)\
+					\{\
+					subname = br2.readLine().trim();\
+					if (arr[row][1] != null) // If type has been assigned\
+						maxrow = includeSubname (arr,maxrow,row,subname);\
+					\}\
+				\
+				\
+				System.out.println (i+":");\
+				printArray (arr, maxrow);\
+				System.out.println ("\\n");\
+				\
+			\
+			\}//first for\
+			\
+		\}// try\
+		\
+		catch (Exception e)\
+		\{e.printStackTrace();\}\
+		\
+		finally\
+        \{\
+            try\
+            \{\
+                if (br1 != null)\
+                    br1.close();\
+                if (br2 != null)\
+                	br2.close();\
+            \} \
+            catch (Exception e)\
+            \{e.printStackTrace();\}\
+        \}\
+		\
+	\}//main\
+	\
+	\
+	public static int isPresent (String arr[][], int maxrow, String subname)\
+	\{\
+		int i, subrow = -1;\
+		for (i=0;i<maxrow;i++)\
+		\{\
+			if ((arr[i][0].compareTo(subname)) == 0)\
+				subrow = i;\
+		\}\
+		return (subrow);\
+	\}\
+	\
+	public static void addIntervieweeName (String arr[][], int maxrow, String name)\
+	\{\
+		arr[maxrow][0] = name;\
+		if (maxrow==0) // Assign the very first name as "type A"\
+			arr[maxrow][1] = "A";\
+	\}\
+	\
+	public static void checkSubname (String arr[][], int maxrow, int row, String subname)\
+	\{\
+		int i,subrow;\
+		subrow = isPresent (arr, maxrow, subname);\
+\
+		if (subrow!=-1)\
+		\{\
+			if (arr[subrow][1].compareTo("A") == 0)\
+				arr[row][1] = "B";			\
+			if (arr[subrow][1].compareTo("B") == 0)\
+				arr[row][1] = "A";\
+		\}\
+	\}\
+	\
+	\
+	public static int includeSubname (String arr[][], int maxrow, int row, String subname)\
+	\{\
+		int subrow;\
+		String typeSub = null;\
+		if (arr[row][1].compareTo("A") == 0)\
+			typeSub = "B";			\
+		if (arr[row][1].compareTo("B") == 0)\
+			typeSub = "A";\
+		subrow = isPresent (arr,maxrow,subname);\
+		\
+		if (subrow == -1)\
+		\{\
+			arr[maxrow][0] = subname;\
+			arr[maxrow][1] = typeSub;\
+			return (maxrow+1);\
+		\}\
+		\
+		if (arr[subrow][1] == null)\
+			arr[subrow][1] = typeSub;\
+		\
+		return (maxrow);\
+		\
+	\}\
+	\
+	public static void printArray (String arr[][], int maxrow)\
+	\{\
+		int i;\
+		for (i=0;i<maxrow;i++)\
+			System.out.println (arr[i][0] + " . " + arr[i][1]);\
+	\}\
+	\
+\}//class\
+}

@@ -1,0 +1,86 @@
+package qnb;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.Vector;
+
+public class qnb 
+{
+	public static void main (String args [])
+	{
+		try
+		{
+			int i, N;
+			BufferedReader br = new BufferedReader (new InputStreamReader (System.in));
+			Vector vAns = new Vector <Integer> ();
+			String entry = null;
+		
+			N = Integer.parseInt (br.readLine());
+			
+			for (i=0; i<N; i++)
+			{
+				// Obtain and parse input
+				entry = br.readLine().trim().toLowerCase();
+				int arr[] = new int [1];
+				
+				check (entry, arr);
+				if (arr[0] == 1000000007)
+					arr[0] = 0;
+				if (arr[0] == 1000000008)
+					arr[0] = 1;
+				System.out.println (arr[0]);
+			}
+		} // End Try
+		catch (Exception e)
+		{System.out.println ("Oh no. Exception Thown!");}
+	} // End Main
+	
+	public static void check (String entry, int arr [])
+	{
+		arr[0]++;
+		arr[0] = arr[0] % 1000000007;
+		
+		if (entry.length() == 1)
+			return;
+		
+		
+		/*if (entry.length() == 2)
+		{
+			if (entry.contains("a") && entry.contains("b"))
+				arr[0]+=3;
+			else
+				arr[0]+=2;
+			System.out.println (arr[0]);
+			return;
+		}*/
+		
+		int i,j;
+		String subb = null, entry1, entry2;
+		
+		for (j=1;j<=entry.length();j++)
+		{
+			for (i=0; i<j; i++)
+			{
+				subb = entry.substring(i, j);
+				if (subb.length() == 1 || subb.length() == 0)
+					continue;
+				
+				if (subb.contains("a"))
+				{
+					entry1 = entry.substring(0, i) + "a" + entry.substring(j, entry.length());
+					//System.out.println (entry1);
+					check (entry1,arr);
+				}
+				
+				if (subb.contains("b"))
+				{
+					entry1 = entry.substring(0, i) + "b" + entry.substring(j, entry.length());
+					//System.out.println (entry1);
+					check (entry1,arr);
+				}
+				
+			}
+		}
+	}
+	
+} // End Class

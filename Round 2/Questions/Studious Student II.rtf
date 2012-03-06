@@ -1,0 +1,120 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf350
+{\fonttbl\f0\froman\fcharset0 Times-Roman;\f1\ftech\fcharset77 Symbol;\f2\fnil\fcharset0 LucidaGrande;
+\f3\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid1\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sa240\ql\qnatural
+
+\f0\fs24 \cf0 You've decided to make up another string manipulation game instead of paying attention in class. Starting with a string composed entirely of 'a' and 'b' characters, you will iteratively apply the following operation:\
+For a string 
+\b s
+\b0  of length 
+\b len
+\b0 , choose indices 
+\b i
+\b0  and 
+\b j
+\b0 , where 
+\b i
+\b0  < 
+\b j
+\b0  < 
+\b len
+\b0 . Choose a character 
+\b c
+\b0  that occurs in the substring which begins at zero-based index 
+\b i
+\b0  of string 
+\b s
+\b0  and extends to the index 
+\b j
+\b0  (inclusive). Replace all characters in 
+\b s
+\b0  with zero-based index in [
+\b i
+\b0 , 
+\b j
+\b0 ] with a single instance of 
+\b c
+\b0  to generate 
+\b s'
+\b0 . Set 
+\b s
+\b0  to be 
+\b s'
+\b0 .\
+As an example of sequence of operations consider the string 'abba'. Some of the possible transformations are shown below. The substring being replaced is enclosed in square brackets.\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\ql\qnatural
+\ls1\ilvl0\cf0 {\listtext	1.	}[abb]a 
+\f1 \uc0\u8594 
+\f0  [aa] 
+\f1 \uc0\u8594 
+\f0  a\
+{\listtext	2.	}a[bba] 
+\f1 \uc0\u8594 
+\f0  [aa] 
+\f1 \uc0\u8594 
+\f0  a\
+{\listtext	3.	}ab[ba] 
+\f1 \uc0\u8594 
+\f0  [abb] 
+\f1 \uc0\u8594 
+\f0  a\
+{\listtext	4.	}a[bb]a 
+\f1 \uc0\u8594 
+\f0  aba\
+\pard\pardeftab720\sa240\ql\qnatural
+\cf0 The goal of your game is simple: calculate how many different sequences of operations you can perform. As this number can be very large, you decide to calculate it modulo 1,000,000,007. Two sequences of operations are considered different if they differ in length, or if they differ in at least one position. Note that the order of operations is a factor. The empty sequence of operations should be counted as well. Operations can be considered triples of (
+\b i
+\b0 , 
+\b j
+\b0 , 
+\b c
+\b0 ) as described above, and these are the only values used when computing whether two operations are the same.\
+\pard\pardeftab720\sa280\ql\qnatural
+
+\b\fs36 \cf0 Input\
+\pard\pardeftab720\sa240\ql\qnatural
+
+\b0\fs24 \cf0 The first line of the input file contains a single number 
+\b N
+\b0 , the number of test cases. Each test case is written on a separate line, and contains a string consisting of letters 'a' and 'b'.\
+\pard\pardeftab720\sa280\ql\qnatural
+
+\b\fs36 \cf0 Output\
+\pard\pardeftab720\sa240\ql\qnatural
+
+\b0\fs24 \cf0 Output N lines, with the answer to each test case on a single line.\
+\pard\pardeftab720\sa280\ql\qnatural
+
+\b\fs36 \cf0 Constraints\
+\pard\pardeftab720\sa240\ql\qnatural
+
+\fs24 \cf0 N
+\b0  = 20
+\f2 \uc0\u8232 
+\f0 1 \uc0\u8804  
+\b len
+\b0  \uc0\u8804  60
+\f2 \uc0\u8232 
+\f0\b s
+\b0  only contains the lowercase characters 'a' and 'b'.\
+\pard\pardeftab720\ql\qnatural
+\cf0 Example inputExample output\
+\pard\pardeftab720\ql\qnatural
+
+\f3 \cf0 5\
+ab\
+aba\
+aabb\
+ababa\
+bbbbb\
+3\
+13\
+57\
+642\
+120\
+}

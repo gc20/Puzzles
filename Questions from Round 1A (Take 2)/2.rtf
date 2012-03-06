@@ -1,0 +1,117 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf350
+{\fonttbl\f0\froman\fcharset0 Times-Roman;\f1\fnil\fcharset0 LucidaGrande;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue238;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\ql\qnatural
+
+\f0\fs24 \cf0 Diversity Number\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\ql\qnatural
+\ls1\ilvl0\cf0 {\listtext	\'95	}Download input file\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\ql\qnatural
+\ls1\ilvl0\cf2 {\listtext	\'95	}{\field{\*\fldinst{HYPERLINK "http://www.facebook.com/hackercup/ajax/submit_dialog.php?pid=127561170642475"}}{\fldrslt \ul Submit answers}}\cf0 \
+{\listtext	\'95	}-
+\f1 \uc0\u8232 
+\f0 \
+\pard\pardeftab720\ql\qnatural
+\cf0 \
+\pard\pardeftab720\sa240\ql\qnatural
+\cf0 Let's call a sequence of integers a
+\fs20 \sub 1
+\fs24 \nosupersub , a
+\fs20 \sub 2
+\fs24 \nosupersub , ..., a
+\fs20 \sub N
+\fs24 \nosupersub  
+\i almost monotonic
+\i0  if first K elements are non-decreasing sequence and last N-K+1 elements are non-increasing sequence: a
+\fs20 \sub 1
+\fs24 \nosupersub \uc0\u8804 a
+\fs20 \sub 2
+\fs24 \nosupersub \uc0\u8804 ...\u8804 a
+\fs20 \sub K
+\fs24 \nosupersub  and a
+\fs20 \sub K
+\fs24 \nosupersub \uc0\u8805 a
+\fs20 \sub K+1
+\fs24 \nosupersub \uc0\u8805 ...\u8805 a
+\fs20 \sub N
+\fs24 \nosupersub .\
+The 
+\i diversity number
+\i0  of a sequence a
+\fs20 \sub 1
+\fs24 \nosupersub , a
+\fs20 \sub 2
+\fs24 \nosupersub , ..., a
+\fs20 \sub N
+\fs24 \nosupersub  is the number of possible sequences b
+\fs20 \sub 1
+\fs24 \nosupersub , b
+\fs20 \sub 2
+\fs24 \nosupersub ,..., b
+\fs20 \sub N
+\fs24 \nosupersub  for which 0\uc0\u8804 b
+\fs20 \sub i
+\fs24 \nosupersub <a
+\fs20 \sub i
+\fs24 \nosupersub  and all of the numbers b
+\fs20 \sub 1
+\fs24 \nosupersub , b
+\fs20 \sub 2
+\fs24 \nosupersub ,..., b
+\fs20 \sub N
+\fs24 \nosupersub  are different. The diversity number of an empty sequence is 1.\
+You need to find the sum of the diversity numbers of all almost monotonic subsequences of a sequence. Since this number can be very large, find it modulo 1,000,000,007. A subsequence is a sequence that can be obtained from another sequence by deleting some elements without changing the order of the remaining elements. Two sequences are considered different if their lengths differ or there is at least one position at which they differ.\
+\pard\pardeftab720\sa280\ql\qnatural
+
+\b\fs36 \cf0 Input\
+\pard\pardeftab720\sa240\ql\qnatural
+
+\b0\fs24 \cf0 The first line of the input file consists of a single number 
+\b T
+\b0 , the number of test cases. Each test case consists of a number 
+\b M
+\b0 , the number of elements in a sequence, followed by 
+\b M
+\b0  numbers 
+\b n
+\b0 , elements of some sequence (note that this sequence is not necessarily 
+\i almost monotonic
+\i0 ). All tokens are whitespace-separated\
+\pard\pardeftab720\sa280\ql\qnatural
+
+\b\fs36 \cf0 Constraints\
+\pard\pardeftab720\sa240\ql\qnatural
+
+\fs24 \cf0 T
+\b0  = 20
+\f1 \uc0\u8232 
+\f0 1 \uc0\u8804  
+\b M
+\b0 , 
+\b n
+\b0  \uc0\u8804  100\
+\pard\pardeftab720\sa280\ql\qnatural
+
+\b\fs36 \cf0 Output\
+\pard\pardeftab720\sa240\ql\qnatural
+
+\b0\fs24 \cf0 Output T lines, with the answer to each test case on a single line.\
+\pard\pardeftab720\ql\qnatural
+\cf0 Example inputExample output\
+5\
+1 1\
+2 2 1\
+3 1 3 2\
+4 1 3 1 2\
+4 2 3 4 3\
+2\
+5\
+15\
+17\
+80\
+\
+}
